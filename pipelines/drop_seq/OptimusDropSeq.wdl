@@ -228,7 +228,7 @@ workflow OptimusDropSeq {
 	output {
 	    # version of this pipeline
         String pipeline_version = version
-        File summary_report = collect_summary.report
+        String summary_report = collect_summary.report
 	}
 
 }
@@ -266,7 +266,7 @@ task collect_summary {
 	}
 
 	output {
-		File report = "${output_directory}/drop_seq_report.html"
+		String report = "${output_directory}/drop_seq_report.html"
 	}
 
 	runtime {
