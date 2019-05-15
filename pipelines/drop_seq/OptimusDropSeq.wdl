@@ -228,7 +228,6 @@ workflow OptimusDropSeq {
 	output {
 	    # version of this pipeline
         String pipeline_version = version
-        String summary_report = collect_summary.report
 	}
 
 }
