@@ -266,7 +266,7 @@ task collect_summary {
 	}
 
 	output {
-		String report = "${output_directory}/drop_seq_report.html"
+		File report = "${output_directory}/drop_seq_report.html"
 	}
 
 	runtime {
