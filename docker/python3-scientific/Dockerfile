@@ -11,15 +11,16 @@ RUN pip3 install \
     crimson==0.4.0 \
     HTSeq==0.9.0 \
     matplotlib==2.1.0 \
-    numpy==1.12.0 \
+    numpy==1.13.3 \
     pandas==0.20.3 \
     pysam==0.12.0.1 \
     requests==2.18.4 \
     scipy==0.18.1 \
-    sctools==0.1.6 \
+    #sctools==0.1.6 \
     tables==3.4.2 \
     numcodecs==0.5.5 \
     zarr==2.2.0
+RUN pip3 install git+git://github.com/HumanCellAtlas/sctools.git@kmk-sn-rna-seq-support
 
 RUN mkdir /tools
 WORKDIR /tools
