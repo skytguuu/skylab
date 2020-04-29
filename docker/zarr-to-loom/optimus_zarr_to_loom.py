@@ -38,6 +38,8 @@ def main():
     store = zarr.DirectoryStore(input_zarr_path)
     root = zarr.open(store)
 
+    #Get expression data type: exonic or whole_transcript
+    
     # Get the expression matrix
     # expression matrix in numpy ndarray format (dense)
     # NOTE: If memory is limiting this could be done by chunk
@@ -117,9 +119,12 @@ def main():
         col_attrs[name] = data
 
     [add_to_cell_meta_float_by_index(i) for i in range(0, float_field_names.shape[0])]
-
+    
+    #loom file attributes 
+    attrDict = root[f"/{sample_id}.zarr"].attrs.asdict()
+    
     # Generate the loom file
-    loompy.create(output_loom_path, expr_sp_t, row_attrs, col_attrs)
+    loompy.create(output_loom_path, expr_sp_t, row_attrs, col_attrs, file_attrs=attrDict)
 
 
 if __name__ == '__main__':
